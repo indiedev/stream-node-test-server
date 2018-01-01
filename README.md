@@ -42,10 +42,10 @@
           ^   
     
     TypeError: Cannot read property 'wasNew' of undefined
-        at D:\repos\ridez\ridez-aws-dev\scratch.src\streams\streams-test\node_modules\getstream-node\src\backends\mongoose.js:105:13
-        at D:\repos\ridez\ridez-aws-dev\scratch.src\streams\streams-test\node_modules\mongoose\lib\model.js:4056:16
-        at next (D:\repos\ridez\ridez-aws-dev\scratch.src\streams\streams-test\node_modules\mongoose\lib\model.js:3175:14)
-        at Immediate._onImmediate (D:\repos\ridez\ridez-aws-dev\scratch.src\streams\streams-test\node_modules\mongoose\lib\model.js:3205:7)
+        at D:\streams-test\node_modules\getstream-node\src\backends\mongoose.js:105:13
+        at D:\streams-test\node_modules\mongoose\lib\model.js:4056:16
+        at next (D:\streams-test\node_modules\mongoose\lib\model.js:3175:14)
+        at Immediate._onImmediate (D:\streams-test\node_modules\mongoose\lib\model.js:3205:7)
         at runCallback (timers.js:785:20)
         at tryOnImmediate (timers.js:747:5)
         at processImmediate [as _immediateCallback] (timers.js:718:5)
