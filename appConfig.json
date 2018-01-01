@@ -1,0 +1,6 @@
+{
+  "apiKey" : "<Stream apiKey>",
+  "apiSecret" : "<Stream apiSecret>",
+  "apiAppId" : "<Stream apiAppId>",
+  "mongodbURI" : "<Mongodb URI with username:password, if any>"
+}
