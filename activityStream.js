@@ -4,10 +4,9 @@
 
 var fs         = require ( 'fs' );
 var qPromise   = require ( 'q' );
+var mongoose   = require ( 'mongoose' );
 var streamNode = require ( 'getstream-node' );
 var moment     = require ( 'moment' );
-
-var mongoose = require ( 'mongoose' );
 
 var Schema       = mongoose.Schema;
 mongoose.Promise = require ( 'q' ).Promise;
@@ -19,11 +18,10 @@ var appConfig  = JSON.parse ( fs.readFileSync ( './appConfig.json' ) );
 var uriMongoDB = encodeURI ( appConfig.mongodbURI );
 
 var feedManager, streamMongoose, streamBackend;
-var User, Expense;
-var expenseAddSchema, ExpenseAdd;
+var User, Expense, ExpenseAdd;
 
 function expenseModel () {
-	expenseAddSchema = Schema ( {
+	var expenseAddSchema = Schema ( {
 		user   : { type : Schema.Types.ObjectId, required : true, ref : 'users' },
 		object : { type : Schema.Types.ObjectId, required : true, ref : 'expenses' }
 	}, {
@@ -48,16 +46,19 @@ function expenseModel () {
 		return this.user._id + ':' + this.object._id;
 	};
 
-	/*
 	expenseAddSchema.post ( 'save', function ( doc ) {
 		if ( doc.wasNew ) {
 			var userId   = doc.user._id || doc.user;
 			var objectId = doc.object._id || doc.object;
 
-			//feedManager.activityCreated ( doc );
+			logMsg = 'file: activityStream.js, in function expenseAddSchema.post ( \'save\' ), doc value : ' + JSON.stringify ( doc );
+
+			console.log ( logMsg );
+			logToFile.log ( logMsg );
 		}
 	} );
 
+	/*
 	expenseAddSchema.post ( 'remove', function ( doc ) {
 		console.log ( 'Do something to remove doc: ' + JSON.stringify ( doc ) );
 	} );
